@@ -1,8 +1,8 @@
 import { Injectable, Output, EventEmitter } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { User } from './user.model';
 import { baseURL } from '../../config/baseURL';
-import { empty, Observable } from 'rxjs';
+import { Observable } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 import { Router } from '@angular/router';
 
@@ -17,17 +17,16 @@ export class LoginService {
   ) {}
 
   @Output() mostrarMenuEmitter = new EventEmitter<boolean>();
+  @Output() errorResponse = new EventEmitter();
 
   response: Observable<User>;
-  errorResponse: any;
   user: User;
-  baseURL: any = baseURL.url;
 
   create (user: User): Observable<any> {
-    this.response = this.http.post<any>(this.baseURL + '/login', user)
+    this.response = this.http.post<any>(baseURL.url + '/login', user)
     .pipe(
       catchError(error => {
-        this.errorResponse = error.error
+        this.errorResponse.emit(error.error);
         this.mostrarMenuEmitter.emit(false);
         return error.error;
       })

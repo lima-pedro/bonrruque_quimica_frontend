@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 import { LoginService } from '../../../views/login/login.service';
 import { Router } from '@angular/router';
 
@@ -13,8 +13,9 @@ export class HeaderComponent {
     private router: Router
   ) {}
 
-
-  mostrarMenu: boolean = false;  
+  mostrarMenu: boolean = false; 
+  
+  @Output() mostrarAlertaLogout = new EventEmitter<boolean>();
 
   navItens = [
     { title: "Pedidos", subtitle: [
@@ -42,6 +43,7 @@ export class HeaderComponent {
 
   logout () {
     localStorage.setItem('token', '');
+    this.mostrarAlertaLogout.emit(true);
     this.mostrarMenu = false;
     this.router.navigate(['']);
   }

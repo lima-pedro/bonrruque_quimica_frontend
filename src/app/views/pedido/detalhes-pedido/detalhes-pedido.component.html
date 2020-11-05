@@ -1,0 +1,21 @@
+<div class="container">
+  <div class="card">
+    <div class="card-header">
+      <h3>Pedido N° {{ pedido.id }}</h3>
+    </div>
+    <div class="card-body">
+      <p>Cliente: <strong> {{ cliente.nome }} </strong></p>
+      <p>Endereço: <strong> {{ cliente.logradouro }}, {{cliente.numeroEndereco}} - {{ cliente.bairro }}  </strong></p>
+      <p>Cidade (UF) :  <strong> {{ cliente.cidade }} / {{ cliente.uf }}  </strong></p>
+      <hr>
+      <p>Forma de Pagamento: <strong> {{ pedido.formaPagamento }} </strong></p>
+      <p>Complemento Endereço: <strong> {{ pedido.pontoReferenciaEntrega }} </strong></p>
+      <p>Data de Entrega: <strong> {{ pedido.dataEntrega }} </strong></p>
+    </div>
+    <div class="card-footer">
+      <button class="btn btn-outline-info btn-sm" routerLink="/consulta-pedido">Voltar</button>
+      <button class="btn btn-outline-warning btn-sm" disabled>Editar Pedido</button>
+      <button class="btn btn-outline-danger btn-sm" disabled>Apagar Pedido</button>
+    </div>
+  </div>
+</div>

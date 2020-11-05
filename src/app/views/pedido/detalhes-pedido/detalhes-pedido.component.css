@@ -1,0 +1,11 @@
+.card {
+  margin-top: 12px;
+}
+
+h3 {
+  font-size: 1.3rem;
+}
+
+.card-footer .btn {
+  margin-right: 12px;
+}

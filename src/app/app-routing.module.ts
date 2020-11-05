@@ -8,7 +8,8 @@ import { CadastroPedidoComponent } from './views/pedido/cadastro-pedido/cadastro
 import { ConsultaClienteComponent } from './views/cliente/consulta-cliente/consulta-cliente.component';
 import { ConsultaProdutoComponent } from './views/produto/consulta-produto/consulta-produto.component';
 import { ConsultaPedidoComponent } from './views/pedido/consulta-pedido/consulta-pedido.component';
-
+import { DetalhesPedidoComponent } from './views/pedido/detalhes-pedido/detalhes-pedido.component';
+ 
 const routes: Routes = [
   {path: '', component: LoginComponent},
   {path: 'home', component: HomeComponent},
@@ -17,7 +18,8 @@ const routes: Routes = [
   {path: 'cadastro-produto', component: CadastroProdutoComponent},
   {path: 'consulta-produto', component: ConsultaProdutoComponent},
   {path: 'cadastro-cliente', component: CadastroClienteComponent},
-  {path: 'consulta-cliente', component: ConsultaClienteComponent}
+  {path: 'consulta-cliente', component: ConsultaClienteComponent},
+  {path: 'detalhes-pedido/:id', component: DetalhesPedidoComponent}
 ];
 
 @NgModule({

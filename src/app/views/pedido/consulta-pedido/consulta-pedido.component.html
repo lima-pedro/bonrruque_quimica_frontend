@@ -3,17 +3,21 @@
     <thead>
       <tr>
         <td>N° Pedido</td>
-        <td>Cliente</td>
         <td>Forma Pgto</td>
         <td>Data Entrega</td>
+        <td>Ações</td>
       </tr>
     </thead>
     <tbody>
       <tr *ngFor="let pedido of pedidos">
         <td>{{ pedido.id }}</td>
-        <td>{{ pedido.clienteId }}</td>
         <td>{{ pedido.formaPagamento }}</td>
         <td>{{ pedido.dataEntrega }}</td>
+        <td>
+          <a [routerLink]="['/detalhes-pedido', pedido.id]" class="nav-link">
+            detalhes
+          </a>
+        </td>
       </tr>
     </tbody>
   </table>

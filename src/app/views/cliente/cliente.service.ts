@@ -40,7 +40,6 @@ export class ClienteService {
         'Authorization': this.token
       }
     })
-    this.router.navigate['/clients']
     return this.response;
   }
 }

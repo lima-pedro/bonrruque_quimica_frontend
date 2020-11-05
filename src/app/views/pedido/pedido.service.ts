@@ -26,6 +26,14 @@ export class PedidoService {
     })
   }
 
+  show (id: number) {
+    return this.http.get(baseURL.url + '/order/' +id, {
+      headers: {
+        'Authorization': this.token
+       }
+    })
+  }
+
   create (pedido: Pedido) {
     console.log(pedido);
     this.response =  this.http.post(baseURL.url + '/order', pedido, {

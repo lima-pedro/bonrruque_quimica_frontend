@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { PedidoService } from '../pedido.service';
-import { Pedido } from '../pedido.model';
 
 @Component({
   selector: 'app-consulta-pedido',
@@ -9,20 +8,16 @@ import { Pedido } from '../pedido.model';
 })
 export class ConsultaPedidoComponent implements OnInit {
 
-  pedidos: Pedido;
+  pedidos: any;
 
   constructor(
     private pedidoService: PedidoService
   ) { }
 
-  ngOnInit(): void {
+  ngOnInit() {
     this.pedidoService.index().subscribe(orders => {
       this.pedidos = orders
     });
-
-    // this.pedidoService.showClient(this.pedidos.clientId).subscribe(cliente => {
-    //   console.log(cliente);
-    // })
+    
   }
-
 }

@@ -1,4 +1,12 @@
 <div class="container">
+  <!-- Erro de e-mail ou senha -->
+  <div *ngIf="exibeErroLogin" class="alert alert-danger" role="alert">
+    E-mail ou Senha inválidos!
+  </div>
+  <!-- Alerta de logout -->
+  <div *ngIf="exibeAlertaLogout" class="alert alert-success" role="alert">
+    Logout efetuado!
+  </div>
   <div class="card">
     <div class="card-header">
       Faça seu Login
@@ -7,11 +15,23 @@
       <form class="form">
         <div class="form-group">
           <label for="email">E-mail</label>
-          <input class="form-control" type="email" [(ngModel)]="email" name="email" placeholder="Digite seu e-mail cadastrado">
+          <input
+            class="form-control"
+            type="email"
+            [(ngModel)]="user.email"
+            name="email"
+            placeholder="Digite seu e-mail cadastrado"
+          >
         </div>
         <div class="form-group">
           <label for="password">Senha</label>
-          <input class="form-control" type="password" [(ngModel)]="senha" name="senha" placeholder="Digite a senha cadastrada">
+          <input
+            class="form-control"
+            type="password"
+            [(ngModel)]="user.senha"
+            name="senha"
+            placeholder="Digite a senha cadastrada"
+          >
         </div>
         <div class="form-group">
           <button class="btn btn-success btn-block" (click)="create()">Entrar</button>

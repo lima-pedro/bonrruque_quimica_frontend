@@ -1,8 +1,8 @@
-import { Component, EventEmitter, Output } from '@angular/core';
-import { Router } from '@angular/router';
+import { Component } from '@angular/core';
 import { User } from './user.model';
 import { LoginService } from './login.service';
-import { empty, Observable } from 'rxjs';
+import { Observable } from 'rxjs';
+import { HeaderComponent } from '../../components/templates/header/header.component';
  
 @Component({
   selector: 'app-login',
@@ -13,25 +13,34 @@ export class LoginComponent {
 
   email: string;
   senha: string;  
-  user: User;
+  user: User = {
+    "email": '',
+    "senha": ''
+  }
   user$: Observable<User>;
+  exibeErroLogin: boolean = false;
+  exibeAlertaLogout: boolean = false;
 
   constructor (
     private service: LoginService,
-    private router: Router
+    private headerComponet: HeaderComponent
   ) {}
 
-  create () {
-    this.user = {
-      "email": this.email,
-      "senha": this.senha
-    }
+  // ngOnInit () {
+  //   this.headerComponet.mostrarAlertaLogout.subscribe(mostrarAlertaLogout => {
+  //     this.exibeAlertaLogout = mostrarAlertaLogout;
+  //   })
+  // }
 
-    this.user$ = this.service.create(this.user).pipe();    
+  create () {    
+    this.user$ = this.service.create(this.user).pipe();
+
+    this.service.errorResponse.subscribe(error => {
+      if (error) {
+        this.exibeErroLogin = true;
+        this.user.email = '';
+        this.user.senha = '';
+      }
+    })
   }
-
-
-
 }
-
-
