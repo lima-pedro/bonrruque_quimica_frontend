@@ -1,0 +1,36 @@
+.container {
+  margin-top: 12px;
+  margin-bottom: 12px;
+}
+
+.card-body .itens{
+  margin-top: 12px;
+  display: flex;
+}
+
+.cliente-container {
+  margin-top: 12px;
+  padding: 8px;
+  border: 4px dotted grey;
+}
+
+.form {
+  margin-top: 12px;
+}
+
+h3 {
+  font-size: 1.3rem;
+}
+
+h4 {
+  font-size: 1.2rem;
+}
+
+.card-group {
+  display: flex;
+  gap: 6px;
+}
+
+.card-group .form-group{
+  width: 49.5%
+}

@@ -1,0 +1,42 @@
+.container {
+  margin-top: 12px;
+}
+
+h4 {
+  font-size: 1.3rem;
+  line-height: 2.3rem;
+}
+
+.card-group {
+  display: flex;
+  gap: 4px;
+}
+
+.card-group #numero,
+.card-group #contato {
+  width: 33%;
+}
+
+.card-group #complemento,
+.card-group #nome {
+  width: 66.5%;
+}
+
+.card-group-2 {
+  display: flex;
+  gap: 4px;
+}
+
+.card-group .form-group {
+  width: 49.5%;
+}
+
+.fieldset {
+  margin: 12px;
+  padding: 12px;
+  border: 4px dotted rgb(173, 173, 173);
+}
+
+.fieldset legend {
+  text-align: center;
+}

@@ -1,0 +1,27 @@
+<div class="container">
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th>Código</th>
+        <th>Código Interno</th>
+        <th>Nome</th>
+        <th>Preço</th>
+        <th>Volume</th>
+        <th>Ações</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let produto of produtos">
+        <td>{{ produto.codigo }}</td>
+        <td>{{ produto.codigoInterno }}</td>
+        <td>{{ produto.nome }}</td>
+        <td>{{ produto.preco }}</td>
+        <td>{{ produto.volume }}</td>
+        <td class="btn-action">
+          <button class="btn btn-warning btn-sm">Editar</button>
+          <button class="btn btn-danger btn-sm" (click)="delete()">Deletar</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

@@ -1,0 +1,26 @@
+<div class="container">
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <td>Cliente</td>
+        <td>Contato</td>
+        <td>Endereço</td>
+        <td>Cidade / UF</td>
+        <td>Complemento</td>
+        <td>Ações</td>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let cliente of clientes">
+        <td>{{ cliente.nome }}</td>
+        <td>{{ cliente.contato }}</td>
+        <td>{{ cliente.logradouro }}  {{ cliente.numeroEndereco }} {{ cliente.bairro }}</td>
+        <td>{{ cliente.cidade }} {{ cliente.uf }}</td>
+        <td>{{ cliente.complementoEndereco }}</td>
+        <td class="btn-action">
+          <button class="btn btn-primary btn-sm">Detalhes</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

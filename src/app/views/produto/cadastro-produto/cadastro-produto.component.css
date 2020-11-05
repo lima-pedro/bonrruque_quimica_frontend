@@ -1,0 +1,20 @@
+.card {
+  margin-top: 12px;
+}
+
+.card-group {
+  display: flex;
+  flex-direction: row;
+}
+
+.card-group .form-group {
+  width: 49.5%;
+}
+
+.card-group > .group-2 {
+  margin-left: 8px;
+}
+
+h1 {
+  font-size: 1.4rem;
+}

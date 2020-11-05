@@ -1,0 +1,9 @@
+.table {
+  background-color: #fff;
+  margin-top: 12px;
+}
+
+.btn-action {
+  display: flex;
+  justify-content: space-around;
+}

@@ -1,23 +1,39 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { HttpClientModule } from '@angular/common/http';
+import { FormsModule } from '@angular/forms'; 
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
-import { LoginComponent } from './pages/login/login.component';
-import { DashboardComponent } from './pages/dashboard/dashboard.component';
+import { ClienteModule } from './views/cliente/cliente.module';
+import { ProdutoModule } from './views/produto/produto.module';
+import { PedidoModule } from './views/pedido/pedido.module';
 
+import { LoginComponent } from './views/login/login.component';
+import { LoginService } from './views/login/login.service';
+import { HeaderComponent } from './components/templates/header/header.component';
+import { HomeComponent } from './views/home/home.component';
+ 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
-    DashboardComponent
+    HeaderComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule,
+    FormsModule,
+    ClienteModule,
+    ProdutoModule,
+    PedidoModule
   ],
-  providers: [],
+  providers: [
+    LoginService
+  ],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {}
