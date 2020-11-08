@@ -34,3 +34,11 @@ h4 {
 .card-group .form-group{
   width: 49.5%
 }
+
+.disabled {
+  pointer-events: none;
+}
+
+#botao-remover-cliente {
+  margin-left: 16px;
+}

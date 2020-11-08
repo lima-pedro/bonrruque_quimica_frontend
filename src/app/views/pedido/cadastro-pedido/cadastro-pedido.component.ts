@@ -27,6 +27,8 @@ export class CadastroPedidoComponent {
     clienteId: 0
   }
 
+  produtos_pedido: number[] = [];
+
   constructor (
     private clienteService: ClienteService,
     private produtoService: ProdutoService,
@@ -45,6 +47,9 @@ export class CadastroPedidoComponent {
 
   criarBoxClientes (idCliente: number) {
     this.carregandoCliente = true;
+
+    const btnAdicionarCliente = document.querySelector("#botao-adicionar-cliente");
+    btnAdicionarCliente.classList.add('disabled');
 
     this.clienteService.show(idCliente).subscribe(cliente => {
 
@@ -78,9 +83,7 @@ export class CadastroPedidoComponent {
       form.appendChild(inputEndereco);
       form.appendChild(inputComplemento);
 
-    })
-
-    
+    })    
   }
 
   indexItensPedido () {
@@ -96,13 +99,20 @@ export class CadastroPedidoComponent {
     this.produtoService.show(idProduto).subscribe(produto => {
 
       // Salvando os ID's dos produtos no pedido
-      this.pedido.produtos_pedido += `${idProduto},`;
+      // this.pedido.produtos_pedido += `${idProduto},`;
+
+      // salvamos o id dos produtos dentro de um array
+      this.produtos_pedido.push(idProduto);
 
       const tbody = document.querySelector('.tbody');
       const tr = document.createElement('tr');
       const tdCodigo = document.createElement('td');
       const tdNome = document.createElement('td');
       const tdPreco = document.createElement('td');
+      const tdBtnExcluir = document.createElement('td');
+      tdBtnExcluir.classList.add('btn-excluir');
+
+      tr.setAttribute("id", `${idProduto}`);
 
       // Button excluir produto
       const btnExcluir = document.createElement('button');
@@ -111,17 +121,29 @@ export class CadastroPedidoComponent {
       btnExcluir.classList.add('btn-sm');
       btnExcluir.innerHTML = 'X';
 
+      btnExcluir.onclick = function () {
+        document.getElementById(`${idProduto}`).remove();
+      }
+
       tdCodigo.innerHTML = produto.codigo;
       tdNome.innerHTML = produto.nome;
       tdPreco.innerHTML = produto.preco;
+      tdBtnExcluir.appendChild(btnExcluir);
 
       tr.appendChild(tdCodigo);
       tr.appendChild(tdNome);
       tr.appendChild(tdPreco);
-      tr.appendChild(btnExcluir);
+      tr.appendChild(tdBtnExcluir);
 
       tbody.appendChild(tr);
-  
+      console.log(this.produtos_pedido);
     });   
   }
+
+  removerCliente() {
+    this.carregandoCliente = false;
+    const btnAdicionarCliente = document.querySelector("#botao-adicionar-cliente");
+    btnAdicionarCliente.classList.remove('disabled');
+  }
+
 }

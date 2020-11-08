@@ -18,6 +18,7 @@ export class LoginService {
 
   @Output() mostrarMenuEmitter = new EventEmitter<boolean>();
   @Output() errorResponse = new EventEmitter();
+  @Output() mostrarAlertaLogin = new EventEmitter<boolean>();
 
   response: Observable<User>;
   user: User;
@@ -34,6 +35,7 @@ export class LoginService {
     this.response.subscribe(response => {
       localStorage.setItem("token", response.token);
       this.mostrarMenuEmitter.emit(true);
+      this.mostrarAlertaLogin.emit(false);
       this.router.navigate(['/home']);
     })
     

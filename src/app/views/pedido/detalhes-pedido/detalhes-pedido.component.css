@@ -2,10 +2,28 @@
   margin-top: 12px;
 }
 
+.card-header {
+  display: flex;
+  justify-content: space-between;
+}
+
 h3 {
   font-size: 1.3rem;
 }
 
 .card-footer .btn {
   margin-right: 12px;
+}
+
+.container-tabela {
+  margin-top: 12px;
+}
+
+.table {
+  border: 4px dotted rgb(201, 201, 201);
+}
+
+.disabled {
+  pointer-events: none;
+  background-color: #13849671;
 }

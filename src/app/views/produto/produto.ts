@@ -1,5 +1,5 @@
 export interface Product {
-  codigo: string,
+  codigo?: string,
   codigoInterno: string,
   nome: string,
   preco: string,

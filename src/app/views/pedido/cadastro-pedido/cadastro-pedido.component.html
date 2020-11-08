@@ -7,12 +7,21 @@
       <!-- Button trigger modal Cliente-->
       <button
         type="button"
+        id="botao-adicionar-cliente"
         class="btn btn-success btn-sm"
         data-toggle="modal"
         data-target="#exampleModal"
         (click)="indexClients()"
       >
         Adicionar Cliente
+      </button>
+
+      <button
+        class="btn btn-danger btn-sm"
+        id="botao-remover-cliente"
+        (click)="removerCliente()"
+      >
+        Remover Cliente
       </button>
 
       <!-- Container que exibe cliente -->
@@ -175,6 +184,7 @@
           class="form-control"
           [(ngModel)]="pedido.observacoes"
           name="observacoes"
+          required
         >
       </div>
 
@@ -185,6 +195,7 @@
           class="form-control"
           [(ngModel)]="pedido.pontoReferenciaEntrega"
           name="pontoReferenciaEntrega"
+          required
         >
       </div>
 
@@ -196,6 +207,7 @@
               class="form-control"
               [(ngModel)]="pedido.formaPagamento"
               name="formaPagamento"
+              required
             >
           </div>
     
@@ -206,6 +218,7 @@
               class="form-control"
               [(ngModel)]="pedido.dataEntrega"
               name="dataEntrega"
+              required
             >
           </div>
         </div>

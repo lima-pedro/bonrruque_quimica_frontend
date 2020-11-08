@@ -13,7 +13,8 @@ export class HeaderComponent {
     private router: Router
   ) {}
 
-  mostrarMenu: boolean = false; 
+  mostrarMenu: boolean = false;
+  mostrarAlertaLogin: boolean = true;
   
   @Output() mostrarAlertaLogout = new EventEmitter<boolean>();
 
@@ -38,6 +39,10 @@ export class HeaderComponent {
   ngOnInit () {
     this.loginService.mostrarMenuEmitter.subscribe(
       mostrar => this.mostrarMenu = mostrar
+    )
+
+    this.loginService.mostrarAlertaLogin.subscribe(
+      mostrar => this.mostrarAlertaLogin = mostrar
     )
   }
 

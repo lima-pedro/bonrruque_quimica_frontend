@@ -23,5 +23,9 @@
   >Sair</button>
 </div>
 <div class="content-page">
+  <div class="alert alert-warning" role="alert" *ngIf="mostrarAlertaLogin">
+    <p>Você recarregou a página ='(</p> 
+    <p>Acesse <a href="http://localhost:4200/">Login</a> para poder se autenticar novamente no sistema!</p>
+  </div>
   <router-outlet></router-outlet>
 </div>
